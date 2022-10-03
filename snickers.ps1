@@ -130,8 +130,17 @@ Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
 fix this
 #>
 
-#$tempfolders = @(“C:\Windows\Prefetch\*”, “C:\Documents and Settings\*\Local Settings\temp\*”, “C:\Users\*\Appdata\Local\Temp\*”)
-#Remove-Item $tempfolders -force -recurse-ErrorAction SilentlyContinue
+$tempfolders = @(
+“C:\Windows\Prefetch\*” 
+“C:\Documents and Settings\*\Local Settings\temp\*”
+“C:\Users\*\Appdata\Local\Temp\*”
+)
+
+foreach ($temp in $tempfolders) {
+    Remove-Item $temp -force -recurse-ErrorAction SilentlyContinue
+}
+
+
 
 # Remove Network repair
 Write-Host "Network repair..." -ForegroundColor Yellow;
@@ -160,10 +169,10 @@ Get-AppxPackage -name "Microsoft.XboxApp" | Remove-AppxPackage
 # https://serverfault.com/questions/1089965/how-to-remove-onedrive-via-powershell
 
 # Remove OneDrive
-taskkill /f /im OneDrive.exe
-Write-Host "Removing OneDrive..." -ForegroundColor Yellow;
-cmd -c "%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall"
-cmd -c "%SystemRoot%\System32\OneDriveSetup.exe /uninstall"
+#taskkill /f /im OneDrive.exe
+#Write-Host "Removing OneDrive..." -ForegroundColor Yellow;
+#cmd -c "%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall"
+#cmd -c "%SystemRoot%\System32\OneDriveSetup.exe /uninstall"
 
 
 
