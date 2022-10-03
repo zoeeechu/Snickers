@@ -4,6 +4,5 @@
 <h3>
 Hello I am Snickers!
 </h3>
-<p>
+
 I am a **windows 10** utility tool to *Tweak*, *DeBloat* & *Boost Preformance*
-</p>
